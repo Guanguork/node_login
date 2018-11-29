@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card mt-4">
+      <div class="card-header ">
+        <h4>Profile</h4>
+        <div class="card card-body">
+          <h3> {{ user.email }} </h3>
+          <p> <b>Password:</b> {{ user.password }}</p>
+          <p> <b>ID:</b> {{ user._id }}</p>
+          {{#each user}}<br>
+          Key: {{@key}}  Value = {{this}}
+          {{/each}}
+
+        </div>
+      </div>
+    </div>
+  </div>
