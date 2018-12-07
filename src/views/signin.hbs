@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <div class="card mt-4">
@@ -7,15 +8,18 @@
       <div class="card-body">
         <form action="/signin" method="POST">
           <div class="form-group">
-            <input class="form-control" type="text" name="email" placeholder="Insert Email" />
+            <input class="form-control" type="text" name="email" placeholder="Email" />
           </div>
           <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Insert pass" />
+            <input class="form-control" type="password" name="password" placeholder="Password" />
           </div>
+          {{#if signinMessage}}
+            <div class="alert alert-danger">{{signinMessage}}</div>
+          {{/if}}
           <button class="btn btn-primary btn-block mt-4" type="submit">Login</button>
         </form>
-        <div class="mt-2"> <a href="/reset"> I forgot my password </a></div>
-        <p class="mt-4 ">Don't you have an account? <a href="/signup"> Signup </a> </p>
+        <div class="mt-2"> <a href="/reset"> I forget my pass</a></div>
+        <p class="mt-4 ">Have you got an account? <a href="/signup"> Singup </a> </p>
       </div>
     </div>
   </div>

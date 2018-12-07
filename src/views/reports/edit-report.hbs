@@ -1,0 +1,62 @@
+{{#each errors}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+
+<div class="row">
+  <div class="col-md-12 offset-md-0">
+    <div class="card mt-4">
+      <div class="card-header ">
+        <h1>Eit Report</h1>
+      </div>
+      <div class="card-body">
+        <form action="/reports/edit-report/{{report._id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+          <div class="form-group">
+            <label for="inputMounth" class="">Mounth</label>
+            <div class="">
+              <select id="inputMounth" name="mounth" class="form-control" >
+                <option value="" selected>Choose...</option>
+                <option value="1">January</option>
+                <option value="2">Febrary</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">Dicember</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputYear" class="">Year</label>
+            <div class="">
+              <select name="year" id="inputYear" class="form-control" >
+                <option value="" selected>Choose...</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tasks" class="">Task</label>
+            <input type="text" id="tasks" name="tasks" class="form-control" value="{{report.tasks}}">
+          </div>
+          <div class="form-group">
+            <div class="">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
