@@ -29,7 +29,13 @@ app.engine('.hbs', exphbs({
       if(item1 === item2) {
        return options.fn(this);
       }
-    }}
+    },
+    ifExist: function(text, arr, options) {
+      if(arr.indexOf(text) > -1) {
+        return options.fn(this)
+      }
+    }
+  }
 }))
 app.set('view engine', '.hbs')
 
@@ -61,6 +67,8 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'))
 app.use(require('./routes/users'))
 app.use(require('./routes/reports'))
+app.use(require('./routes/projects'))
+app.use(require('./routes/areas'))
 
 // STATIC FILES
 app.use(express.static(path.join(__dirname, 'public')))

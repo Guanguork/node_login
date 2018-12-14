@@ -2,27 +2,27 @@
   <div class="col-md-12 offset-md-0">
     <div class="card mt-4">
       <div class="card-header ">
-        <h1>Reports</h1>
-        <a href="/reports/add" class="btn btn-primary">New report</a>
+        <h1>Projects</h1>
+        <a href="/projects/add" class="btn btn-primary">New project</a>
 
         <table class="table table-hover mt-5">
           <thead>
             <tr>
               <th scope="col">_id</th>
-              <th scope="col">mounth</th>
-              <th scope="col">year</th>
+              <th scope="col">name</th>
+              <th scope="col">isActive</th>
               <th scope="col">actions</th>
             </tr>
           </thead>
           <tbody>
-            {{#each reports}}
+            {{#each projects}}
             <tr class="viewer">
               <td scope="row" ><div class="truncate">{{this._id}}</div></td>
-              <td>{{this.mounth}}</td>
-              <td>{{this.year}}</td>
+              <td>{{this.title}}</td>
+              <td>{{this.isActive}}</td>
               <th class="row">
-                <a href="/reports/edit/{{this._id}}" class="btn btn-outline-primary btn-sm">&#9998</a>
-                <form  class="ml-2"   action="/reports/delete/{{this._id}}?_method=DELETE" method="POST">
+                <a href="/projects/edit/{{this._id}}" class="btn btn-outline-primary btn-sm">&#9998</a>
+                <form  class="ml-2"   action="/projects/delete/{{this._id}}?_method=DELETE" method="POST">
                   <input type="hidden" name="_method" value="DELETE">
                   <button type="submit" class="btn btn-outline-danger btn-sm">&times</button>
                 </form>

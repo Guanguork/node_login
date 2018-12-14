@@ -15,10 +15,10 @@
       </div>
       <div class="card-body">
         <form action="/reports/new-report" method="POST">
-          <div class="form-group">
-            <label for="inputMounth" class="">Mounth</label>
-            <div class="">
-              <select id="inputMounth" name="mounth" class="form-control" >
+          <div class="form-row mb-4">
+            <div class="from-group col-md-4">
+              <label for="inputMounth" class="mr-2">Mounth</label>
+              <select id="inputMounth" name="mounth" class="form-control">
                 <option value="" selected>Choose...</option>
                 <option value="1">January</option>
                 <option value="2">Febrary</option>
@@ -34,24 +34,62 @@
                 <option value="12">Dicember</option>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="inputYear" class="">Year</label>
-            <div class="">
-              <select name="year" id="inputYear" class="form-control" >
+            <div class="from-group col-md-4">
+              <label for="inputYear" class="mr-2">Year</label>
+              <select id="inputYear" name="year" class="form-control">
                 <option value="" selected>Choose...</option>
                 <option value="2018">2018</option>
                 <option value="2019">2019</option>
               </select>
             </div>
+            <div class="form-group col-md-4">
+              <label for="totalTime" class="mr-2">Total time</label>
+              <input id="totalTime" type="text" value="0" class="form-control" readonly>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="tasks" class="">Task</label>
-            <input type="text" id="tasks" name="tasks" class="form-control" >
+          <div id="accordion">
+            {{#each projects}}
+              <div class="card">
+              <div class="card-header" id="headingOne-{{this.title}}">
+                <h5 class="mb-0">
+                  <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne-{{this.title}}" aria-expanded="true"
+                    aria-controls="collapseOne-{{this.title}}">
+                    {{this.title}}
+                  </a>
+                </h5>
+              </div>
+
+              <div id="collapseOne-{{this.title}}" class="collapse " aria-labelledby="headingOne-{{this.title}}" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="features-{{this.title}}" class="">Features</label>
+                      <input type="text" name="features-{{this.title}}" id="features-{{this.title}}" class="form-control ">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="bugs-{{this.title}}" class="">Bugs</label>
+                      <input type="text" name="bugs-{{this.title}}" id="bugs-{{this.title}}" class="form-control ">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="tasks-{{this.title}}" class="">Task</label>
+                      <input type="text" name="tasks-{{this.title}}[]" id="tasks-{{this.title}}" class="form-control mb-2">
+                      <input type="text" name="tasks-{{this.title}}[]" id="tasks-{{this.title}}" class="form-control mb-2">
+                      <input type="text" name="tasks-{{this.title}}[]" id="tasks-{{this.title}}" class="form-control mb-2">
+                      <input type="text" name="tasks-{{this.title}}[]" id="tasks-{{this.title}}" class="form-control mb-2">
+                      <input type="text" name="tasks-{{this.title}}[]" id="tasks-{{this.title}}" class="form-control mb-2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            {{/each}}
           </div>
-          <div class="form-group">
-            <div class="">
+          <div class="form-row mt-4">
+            <div class="form-group">
               <button type="submit" class="btn btn-primary">Save</button>
+              <a href="/reports" class="btn btn-outline-primary">Cancel</a>
             </div>
           </div>
         </form>

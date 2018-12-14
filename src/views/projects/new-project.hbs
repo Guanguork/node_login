@@ -1,0 +1,37 @@
+{{#each errors}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{text}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/each}}
+
+<div class="row">
+  <div class="col-md-12 offset-md-0">
+    <div class="card mt-4">
+      <div class="card-header ">
+        <h1>New Report</h1>
+      </div>
+      <div class="card-body">
+        <form action="/projects/new-project" method="POST">
+          <div class="form-row mb-4">
+            <div class="from-group col-md-4">
+              <label for="inputTitle" class="mr-2">Title</label>
+              <input type="text" name="title" id="inputTitle" class="form-control">
+            </div>
+             <div class="from-group col-md-4">
+              <label for="inputUsers" class="mr-2">Users</label>
+              <input type="text" name="users[]" id="inputUsers" class="form-control">
+            </div>
+            <div class="form-row mt-4">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/projects" class="btn btn-outline-primary">Cancel</a>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

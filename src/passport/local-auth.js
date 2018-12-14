@@ -29,9 +29,12 @@ passport.use(
           req.flash("signupMessage", "El email ya existe")
         );
       } else {
+        console.log(req)
         const newUser = new User();
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
+        newUser.name = req.body.name;
+        newUser.area = req.body.area;
         await newUser.save();
         done(null, newUser);
       }

@@ -5,10 +5,11 @@ const { Schema } = mongoose
 const userSchema = new Schema({
     email: String,
     password: String,
-    name: { type: String, default: this.email },
-    area: String,
+    name: {type: String, default: "ux member"},
+    area: {type: String, default: "ux"},
     registerDate: { type: Date, default: Date.now },
-    isActive: {type:Boolean, default:true}
+    isActive: {type:Boolean, default:true},
+    role: {type: String, default: 'user'}
 })
 
 userSchema.methods.encryptPassword = (password) => {

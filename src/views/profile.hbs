@@ -4,13 +4,20 @@
       <div class="card-header ">
         <h1>Profile</h1>
         <div class="card card-body">
-          {{#each user._doc}}<br>
-            <p><b>{{@key}}:</b> {{this}}</p>
-          {{/each}}
-          
-          <pre>{{user}}</pre>
-
+          <form action="">
+            {{#each user._doc}}
+            {{#ifExist @key "['email', 'name', 'area']"}}<label for="{{@key}}">{{@key}}</label><input
+              id="{{@key}}" class="form-control" type="text" value="{{this}}"><br>{{/ifExist}}
+            {{/each}}
+          </form>
+          <pre class="mt-5">{{user}}</pre>
         </div>
       </div>
     </div>
   </div>
+
+  {{!-- <form action="">
+    {{#each user._doc}}<br>
+    <label for="{{@key}}">{{@key}}</label>
+    <input id="{{@key}}" class="form-control" type="text" value="{{this}}"
+      {{#ifExist @key "['isActive','_id', 'password', '__v', 'registerDate']"}} disabled{{/ifExist}}> {{/each}} </form> --}}

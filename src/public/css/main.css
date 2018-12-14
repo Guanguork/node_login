@@ -1,3 +1,11 @@
 body {
-    background: gainsboro
+  background: gainsboro;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-hover tbody tr:hover {
+  cursor: pointer;
 }

@@ -5,7 +5,9 @@ const reportSchema = new Schema({
   user: String,
   mounth: String,
   year: String,
-  tasks: Array
+  tasks: Array,
+  features: Number,
+  bugs: Number
 });
 
 module.exports = mongoose.model("reports", reportSchema);
